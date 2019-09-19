@@ -7,13 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style1.css">
     <link rel="stylesheet" href="js/js.js">
-    <title>Document</title>
+    <title>Laboratory 1</title>
 </head>
 
 <body>
 <div id="divBox">
         <h1 style="text-align: center">Calculate Days that you lived</h1>
+        <!-- Output Current Date -->
         <h2 id="T"></h1>
+        <!-- Form part -->
     <label for="name">Name</label>
     <input id="name" type="text" placeholder="Type your name">
 
@@ -73,18 +75,12 @@ function showresult(){
     }
     var leapYear=parseInt( r/4);
     
-    // var d=(31-birthDay)+day;
     var months=(r*12)+m;
-    var days= 365*r+d+leapYear;
-    // var days = month*31+d;
-
-    document.getElementById("result").innerHTML=("Hi "+name+" "+lName+" you lived: <br>"+r+" years<br>"+months+" month<br>"+days+" days");
+    var days= 365*r+d+(31*m)+leapYear;
+    
+    document.getElementById("result").innerHTML=("Hello "+name+" "+lName+" you lived: <br>"+r+" years<br>"+months+" month<br>"+days+" days");
 
     }
-
-    // if ((year % 4 == 0 || year % 400 ==0)&(year % 4 == 0|| year % 100 != 0))
-    // var leapYear = leapYear+1;
-showresult();
     </script>
 </div>
 </body>
