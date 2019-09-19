@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,11 @@
     <link rel="stylesheet" href="js/js.js">
     <title>Document</title>
 </head>
+
 <body>
 <div id="divBox">
-    <h1></h1>
-    <h2 id="T"></h1>
+        <h1 style="text-align: center">Calculate Days that you lived</h1>
+        <h2 id="T"></h1>
     <label for="name">Name</label>
     <input id="name" type="text" placeholder="Type your name">
 
@@ -24,31 +26,24 @@
     <label for="birthMonth">Birth Month</label>
     <input id="birthMonth" type="number" min="1" max="12" required placeholder="1-12">
 
-    
     <label for="birthYear">Birth Year</label>
     <input id="birthYear" type="number" min="1" max="2019" required placeholder="<2019">
-<!-- 
-    <label for="birthYear">Birth Day</label>
-    <input id="birthYear" type="number" required > -->
-    
+
     <button id="but" onclick="showresult(r)">Submit</button>
-    <!-- <button id="fbut" onclick="dateDiff( today, birth">Multiply (*)</button> -->
-    <div id="result" style="height: 30%; color: black; font-size: 30px; background-color:white">
-    
+    <div id="result" style="height: 25%; color: black; font-size: 20px; background-color:white">
+
     </div>
     <script>
-var r;
-// var month;
-// var days;
-// var today11     = new Date();
-// var today1      = today11.getFullYear();
-// var day         = today11.getDay();
-// var mont        = today11.getMonth()+1;
+    var r;
+    var leapYear;
     var currentTime = new Date();
+
     // returns the month (from 0 to 11)
     var month = currentTime.getMonth() + 1;
+
     // returns the day of the month (from 1 to 31)
     var day = currentTime.getDate();
+
     // returns the year (four digits)
     var year = currentTime.getFullYear();
     function showresult1(){
@@ -56,9 +51,6 @@ var r;
     }
     showresult1();
 function showresult(){
-    // var today       = 18;
-    // var yearNow     =2019;
-    // var monthNow    =09;
     var name        = document.getElementById("name").value;
     var lName       = document.getElementById("lN").value;
     var birthDay    = document.getElementById("birthDay").value;
@@ -66,7 +58,7 @@ function showresult(){
     var birthYear = document.getElementById("birthYear").value;
     var r= year- birthYear;
     if (birthMonths>month){
-        var m=(12-birthMonths)+monthNow;
+        var m=(12-birthMonths)+month;
         var r=r-1;
     }
     else{
@@ -79,12 +71,20 @@ function showresult(){
     else{
         var d= day-birthDay;
     }
-    // var d=(31-birthDay)+today;
+    var leapYear=parseInt( r/4);
+    
+    // var d=(31-birthDay)+day;
     var months=(r*12)+m;
-    var days= 356*r+d;
-    document.getElementById("result").innerHTML=("Hi "+name+" "+lName+" you lived "+r+" years-"+months+" month"+"-"+days+" days");
-  
+    var days= 365*r+d+leapYear;
+    // var days = month*31+d;
+
+    document.getElementById("result").innerHTML=("Hi "+name+" "+lName+" you lived: <br>"+r+" years<br>"+months+" month<br>"+days+" days");
+
     }
+
+    // if ((year % 4 == 0 || year % 400 ==0)&(year % 4 == 0|| year % 100 != 0))
+    // var leapYear = leapYear+1;
+showresult();
     </script>
 </div>
 </body>
