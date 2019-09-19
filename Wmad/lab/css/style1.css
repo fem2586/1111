@@ -1,0 +1,15 @@
+#divBox{
+    font-size: 100%;
+    width: 500px;
+    background-color:rgb(170, 235, 173);
+    height: 500px;
+    padding: 20px;
+    border: 4px solid black;
+}
+#name,#lN,#birthDay,#birthMonth,#birthYear,#but,#T{
+    display: block;
+    padding: 3px;
+    text-align: center;
+    margin: 10 auto;
+
+}
