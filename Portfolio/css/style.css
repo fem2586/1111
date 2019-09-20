@@ -1,4 +1,8 @@
-#mySidenav a {
+body {
+    background-image: url(images/help.png); /* Путь к фоновому изображению */
+    background-attachment: fixed; /* Фиксируем фон веб-страницы */
+   }
+   #mySidenav a {
     height          : 70px;
     text-align      : center;
     z-index         : 1000;
