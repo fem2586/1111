@@ -67,7 +67,7 @@ html{
     border                  : 4px solid #CEB5A7;
     border-radius           : 2%;
 }
-#but,#T{
+#but,#CurrentDate{
     padding                 : 13px;
     text-align              : center;
     margin                  : 10 auto;

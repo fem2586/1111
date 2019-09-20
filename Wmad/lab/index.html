@@ -25,7 +25,7 @@
             
     <div class="titleBox">
         <h1 style="text-align: center">Calculate days that you lived</h1>
-        <h2 id="T"></h1>
+        <h2 id="CurrentDate"></h1>
     </div>
             
     <!--======================
@@ -73,7 +73,7 @@
 /* ================================
 Creating Variables for current time
 ===================================*/
-    var r;
+
     var leapYear;
     var currentTime         = new Date();
             
@@ -92,7 +92,7 @@ Creating Variables for current time
     function showresult1()
     {
     
-        document.getElementById("T").innerHTML=("Current Date: "+month + "-" + day + "-" + year);
+        document.getElementById("CurrentDate").innerHTML=("Current Date: "+month + "-" + day + "-" + year);
         document.getElementById("SecondDate").value=(day);
         document.getElementById("secondMonth").value=(month);
         document.getElementById("secondYear").value=(year);   
@@ -160,10 +160,6 @@ Creating Variables for Second date or current time
         var days            = (365*year)+d+parseInt(m*30.4167)+leapYear;
         
         
-
-
-
-
         document.getElementById("result").innerHTML=("Hi "+name+" "+lName+" you lived: <br>"+year+" years "+m+" month "+d+" day or <br>"+months+" month "+d+" days or <br>"+days+" days");
     }
     showresult();
