@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="js/js.js">
     <title>Laboratory 1</title>
 </head>
 <!-- Menu -->
@@ -132,7 +131,8 @@ Creating Variables for Second date or current time
 ===================================*/
             
         var year            = secondYear- birthYear;
-                    
+                
+
         if (birthMonths > secondMonth)
             {
             var m           = (12-birthMonths)+secondMonth;
@@ -153,10 +153,17 @@ Creating Variables for Second date or current time
             var d           = secondDate-birthDay;
             }
             
-            var leapYear        =parseInt( year/4);
-            var months          =(year*12)+m;
-            var days            = 365*year+d+(31*m)+leapYear;
-            
+        
+        
+        var leapYear        =parseInt( year/4);
+        var months          =(year*12)+m;
+        var days            = (365*year)+d+parseInt(m*30.4167)+leapYear;
+        
+        
+
+
+
+
         document.getElementById("result").innerHTML=("Hi "+name+" "+lName+" you lived: <br>"+year+" years "+m+" month "+d+" day or <br>"+months+" month "+d+" days or <br>"+days+" days");
     }
     showresult();
