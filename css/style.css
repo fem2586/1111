@@ -1,3 +1,7 @@
+body{
+    background-color        : #F8DE7E;
+
+}
 #mySidenav a {
     height          : 70px;
     text-align      : center;
@@ -9,9 +13,9 @@
     width           : 100px; /* Set a specific width */
     text-decoration : none; /* Remove underline */
     font-size       : 20px; /* Increase font size */
-    color           : black; /* White text color */
+    /* color           : black; White text color */
     border-radius   : 0 10px 10px 0; /* Rounded corners on the top right and bottom right side */
-    border          : 1px solid black;
+    /* border          : 1px solid black; */
 }
 
 #mySidenav a:hover {
@@ -21,19 +25,27 @@
 /* The about link: 20px from the top with a background */
 #home {
     top: 20px;
-    background-color : white;
+    border                  : 1px solid #1560BD;
+    color                   : #1560BD; 
+    background-color        : #F8DE7E;
 }
 #Wmad {
     top: 150px;
-    background-color : #F6F9F8;
+    border                  : 1px solid #F2E7C9;
+    color                   : #F2E7C9;
+    background-color        : rgb(56, 113, 182);
 }
 
 #PreWmad {
     top: 280px;
-    background-color        : #D9F2F7;
+    color                   : #F8DE7E;
+    border                  : 1px solid #F8DE7E;
+    background-color        : #2B4162;
 }
 
 #Portfolio {
     top: 410px;
-    background-color        : #FFF1A3;
+    color                   : #2B4162;
+    border                  : 1px solid #2B4162;
+    background-color        : #F2E7C9;
 }

@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style1.css">
-    <link rel="stylesheet" href="css/styleForMenu.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/js.js">
     <title>Laboratory 1</title>
 </head>
@@ -18,78 +17,149 @@
         <a href="https://fem2586.github.io/Portfolio/" id="Portfolio">Portfolio</a>
 </div>
 
-    <body>
+<body>
     <div id="divBox">
-        <h1 style="text-align: center">Calculate Days that you lived</h1>
-        <!-- Output Current Date -->
+            
+    <!--======================
+            Title Box
+    =======================-->
+            
+    <div class="titleBox">
+        <h1 style="text-align: center">Calculate days that you lived</h1>
         <h2 id="T"></h1>
-        <!-- Form part -->
-    <label for="name">Name</label>
-    <input id="name" type="text" placeholder="Type your name">
-
-    <label for="lN">Last Name</label>
-    <input id="lN" type="text" placeholder="Type your last name">
-
-    <label for="birthDay">Birth Day</label>
-    <input id="birthDay" type="number" min="1" max="31" required placeholder="1-31">
-
-    <label for="birthMonth">Birth Month</label>
-    <input id="birthMonth" type="number" min="1" max="12" required placeholder="1-12">
-
-    <label for="birthYear">Birth Year</label>
-    <input id="birthYear" type="number" min="1" max="2019" required placeholder="<2019">
-
-    <button id="but" onclick="showresult(r)">Submit</button>
-    <div id="result" style="height: 25%; color: black; font-size: 20px; background-color:white">
-
     </div>
-    <script>
+            
+    <!--======================
+            Name Box
+    =======================-->
+             
+    <div class="nameBox">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Type your name">
+    <br>
+    <br>
+        <label for="lN">Last Name</label>
+        <input id="lN" type="text" placeholder="Type your last name">
+    </div>
+            
+    <!--======================
+            Date Box
+    =======================-->
+                
+    <div class="dateBox">
+        <label for="birthDay">Birth Date </label>
+        <input id="birthDay" class="date" type="number" min="1" value="25" max="31" required placeholder="dd">
+        <input id="birthMonth" class="date" type="number" min="1" value="06" max="12" required placeholder="mm">
+        <input id="birthYear" class="date" type="number" min="1" value="1996" max="2019" required placeholder="year">
+            
+    <br>
+    <br>
+                
+        <label for="SecondDate">Second Date</label>
+        <input id="SecondDate" class="date1" type="number" min="1"  max="31" required placeholder="dd">
+        <input id="secondMonth" class="date1" type="number" min="1" max="12" required placeholder="mm">
+        <input id="secondYear" class="date1" type="number" min="1" max="2019" required placeholder="year">
+                    
+    </div>
+            
+    <!--======================
+        Result Box & Button
+    =======================-->
+                
+    <button id="but" onclick="showresult()">Submit</button>    
+    <div id="result"></div>
+            
+</div>
+<script>
+/* ================================
+Creating Variables for current time
+===================================*/
     var r;
     var leapYear;
-    var currentTime = new Date();
-
-    // returns the month (from 0 to 11)
-    var month = currentTime.getMonth() + 1;
-
-    // returns the day of the month (from 1 to 31)
-    var day = currentTime.getDate();
-
-    // returns the year (four digits)
-    var year = currentTime.getFullYear();
-    function showresult1(){
-    document.getElementById("T").innerHTML=("Current Date: "+month + "-" + day + "-" + year);
+    var currentTime         = new Date();
+            
+// returns the month (from 0 to 11)
+    var month               = currentTime.getMonth() + 1;
+                
+// returns the day of the month (from 1 to 31)
+    var day                 = currentTime.getDate();
+                
+// returns the year (four digits)
+    var year                = currentTime.getFullYear();
+            
+/* ============================================================
+    Creating Function which will show current time in title Box
+==============================================================*/
+    function showresult1()
+    {
+    
+        document.getElementById("T").innerHTML=("Current Date: "+month + "-" + day + "-" + year);
+        document.getElementById("SecondDate").value=(day);
+        document.getElementById("secondMonth").value=(month);
+        document.getElementById("secondYear").value=(year);   
+    
     }
     showresult1();
-function showresult(){
-    var name        = document.getElementById("name").value;
-    var lName       = document.getElementById("lN").value;
-    var birthDay    = document.getElementById("birthDay").value;
-    var birthMonths = document.getElementById("birthMonth").value;
-    var birthYear = document.getElementById("birthYear").value;
-    var r= year- birthYear;
-    if (birthMonths>month){
-        var m=(12-birthMonths)+month;
-        var r=r-1;
-    }
-    else{
-        var m= month-birthMonths;
-    }
-    if (birthDay>day){
-        var d=(31-birthDay)+day;
-        var m=m-1;
-    }
-    else{
-        var d= day-birthDay;
-    }
-    var leapYear=parseInt( r/4);
+                
+/* ============================================================
+Creating Function which will calculate days between two dates 
+=============================================================*/
+                
+    function showresult()
+    {
     
-    var months=(r*12)+m;
-    var days= 365*r+d+(31*m)+leapYear;
-    
-    document.getElementById("result").innerHTML=("Hello "+name+" "+lName+" you lived: <br>"+r+" years<br>"+months+" month<br>"+days+" days");
-
+        var name            = document.getElementById("name").value;
+        var lName           = document.getElementById("lN").value;
+            
+/* ================================
+Creating Variables for  Birth Date
+===================================*/
+            
+        var birthDay        = document.getElementById("birthDay").value;
+        var birthMonths     = document.getElementById("birthMonth").value;
+        var birthYear       = document.getElementById("birthYear").value;
+            
+/* ===============================================
+Creating Variables for Second date or current time
+==================================================*/
+            
+        var secondDate      = parseInt(document.getElementById("SecondDate").value);
+        var secondMonth     = parseInt(document.getElementById("secondMonth").value);
+        var secondYear      = parseInt(document.getElementById("secondYear").value);
+                    
+/* ================================
+        Start calculations
+===================================*/
+            
+        var year            = secondYear- birthYear;
+                    
+        if (birthMonths > secondMonth)
+            {
+            var m           = (12-birthMonths)+secondMonth;
+            var year        = year-1;
+            }
+        else
+            {
+            var m           = secondMonth-birthMonths;
+            }
+            
+        if (birthDay>secondDate)
+            {
+            var d           = (31-birthDay)+secondDate;
+            var m           = m-1;
+            }
+        else
+            {
+            var d           = secondDate-birthDay;
+            }
+            
+            var leapYear        =parseInt( year/4);
+            var months          =(year*12)+m;
+            var days            = 365*year+d+(31*m)+leapYear;
+            
+        document.getElementById("result").innerHTML=("Hi "+name+" "+lName+" you lived: <br>"+year+" years "+m+" month "+d+" day or <br>"+months+" month "+d+" days or <br>"+days+" days");
     }
-    </script>
-</div>
+    showresult();
+</script>
 </body>
 </html>
