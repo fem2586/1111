@@ -17,152 +17,148 @@
 </div>
 
 <body>
-    <div id="divBox">
+<div id="divBox">
+        
+<!--======================
+        Title Box
+=======================-->
+        
+<div class="titleBox">
+    <h1 style="text-align: center">Calculate days that you lived</h1>
+    <h2 id="T"></h1>
+</div>
+        
+<!--======================
+        Name Box
+=======================-->
+         
+<div class="nameBox">
+    <label for="name">Name</label>
+    <input id="name" type="text" placeholder="Type your name">
+<br>
+<br>
+    <label for="lN">Last Name</label>
+    <input id="lN" type="text" placeholder="Type your last name">
+</div>
+        
+<!--======================
+        Date Box
+=======================-->
             
-    <!--======================
-            Title Box
-    =======================-->
+<div class="dateBox">
+    <label for="birthDay">Birth Date </label>
+    <input id="birthDay" class="date" type="number" min="1" value="25" max="31" required placeholder="dd">
+    <input id="birthMonth" class="date" type="number" min="1" value="06" max="12" required placeholder="mm">
+    <input id="birthYear" class="date" type="number" min="1" value="1996" max="2019" required placeholder="year">
+        
+<br>
+<br>
             
-    <div class="titleBox">
-        <h1 style="text-align: center">Calculate days that you lived</h1>
-        <h2 id="CurrentDate"></h1>
-    </div>
-            
-    <!--======================
-            Name Box
-    =======================-->
-             
-    <div class="nameBox">
-        <label for="name">Name</label>
-        <input id="name" type="text" placeholder="Type your name">
-    <br>
-    <br>
-        <label for="lN">Last Name</label>
-        <input id="lN" type="text" placeholder="Type your last name">
-    </div>
-            
-    <!--======================
-            Date Box
-    =======================-->
+    <label for="SecondDate">Second Date</label>
+    <input id="SecondDate" class="date1" type="number" min="1"  max="31" required placeholder="dd">
+    <input id="secondMonth" class="date1" type="number" min="1" max="12" required placeholder="mm">
+    <input id="secondYear" class="date1" type="number" min="1" max="2019" required placeholder="year">
                 
-    <div class="dateBox">
-        <label for="birthDay">Birth Date </label>
-        <input id="birthDay" class="date" type="number" min="1" value="25" max="31" required placeholder="dd">
-        <input id="birthMonth" class="date" type="number" min="1" value="06" max="12" required placeholder="mm">
-        <input id="birthYear" class="date" type="number" min="1" value="1996" max="2019" required placeholder="year">
+</div>
+        
+<!--======================
+    Result Box & Button
+=======================-->
             
-    <br>
-    <br>
-                
-        <label for="SecondDate">Second Date</label>
-        <input id="SecondDate" class="date1" type="number" min="1"  max="31" required placeholder="dd">
-        <input id="secondMonth" class="date1" type="number" min="1" max="12" required placeholder="mm">
-        <input id="secondYear" class="date1" type="number" min="1" max="2019" required placeholder="year">
-                    
-    </div>
-            
-    <!--======================
-        Result Box & Button
-    =======================-->
-                
     <button id="but" onclick="showresult()">Submit</button>    
     <div id="result"></div>
-            
+        
 </div>
 <script>
 /* ================================
-Creating Variables for current time
+    Creating Variables for current time
 ===================================*/
-
     var leapYear;
     var currentTime         = new Date();
-            
-// returns the month (from 0 to 11)
+        
+    // returns the month (from 0 to 11)
     var month               = currentTime.getMonth() + 1;
-                
-// returns the day of the month (from 1 to 31)
-    var day                 = currentTime.getDate();
-                
-// returns the year (four digits)
-    var year                = currentTime.getFullYear();
             
+    // returns the day of the month (from 1 to 31)
+    var day                 = currentTime.getDate();
+            
+    // returns the year (four digits)
+    var year                = currentTime.getFullYear();
+        
 /* ============================================================
     Creating Function which will show current time in title Box
 ==============================================================*/
-    function showresult1()
-    {
-    
-        document.getElementById("CurrentDate").innerHTML=("Current Date: "+month + "-" + day + "-" + year);
-        document.getElementById("SecondDate").value=(day);
-        document.getElementById("secondMonth").value=(month);
-        document.getElementById("secondYear").value=(year);   
-    
-    }
+function showresult1(){
+    document.getElementById("T").innerHTML=("Current Date: "+month + "-" + day + "-" + year);
+    document.getElementById("SecondDate").value=(day);
+    document.getElementById("secondMonth").value=(month);
+    document.getElementById("secondYear").value=(year);   
+}
     showresult1();
-                
-/* ============================================================
-Creating Function which will calculate days between two dates 
-=============================================================*/
-                
-    function showresult()
-    {
-    
-        var name            = document.getElementById("name").value;
-        var lName           = document.getElementById("lN").value;
             
+/* ============================================================
+    Creating Function which will calculate days between two dates 
+==============================================================*/
+            
+function showresult(){
+    var name            = document.getElementById("name").value;
+    var lName           = document.getElementById("lN").value;
+        
 /* ================================
 Creating Variables for  Birth Date
 ===================================*/
-            
-        var birthDay        = document.getElementById("birthDay").value;
-        var birthMonths     = document.getElementById("birthMonth").value;
-        var birthYear       = document.getElementById("birthYear").value;
-            
+        
+    var birthDay        = document.getElementById("birthDay").value;
+    var birthMonths     = document.getElementById("birthMonth").value;
+    var birthYear       = document.getElementById("birthYear").value;
+        
 /* ===============================================
-Creating Variables for Second date or current time
+    Creating Variables for Second date or current time
 ==================================================*/
-            
-        var secondDate      = parseInt(document.getElementById("SecondDate").value);
-        var secondMonth     = parseInt(document.getElementById("secondMonth").value);
-        var secondYear      = parseInt(document.getElementById("secondYear").value);
-                    
+        
+    var secondDate      = parseInt(document.getElementById("SecondDate").value);
+    var secondMonth     = parseInt(document.getElementById("secondMonth").value);
+    var secondYear      = parseInt(document.getElementById("secondYear").value);
+                
 /* ================================
         Start calculations
 ===================================*/
-            
-        var year            = secondYear- birthYear;
+        
+    var year               = secondYear- birthYear;
                 
-
-        if (birthMonths > secondMonth)
-            {
-            var m           = (12-birthMonths)+secondMonth;
-            var year        = year-1;
-            }
-        else
-            {
-            var m           = secondMonth-birthMonths;
-            }
-            
-        if (birthDay>secondDate)
-            {
-            var d           = (31-birthDay)+secondDate;
-            var m           = m-1;
-            }
-        else
-            {
-            var d           = secondDate-birthDay;
-            }
-            
+if (birthMonths > secondMonth)
+{
+    var m           = (12-birthMonths)+secondMonth;
+    var year           = year-1;
+}
+else
+{
+    var m           = secondMonth-birthMonths;
+}
         
+if (birthDay>secondDate)
+{
+    var d           = (31-birthDay)+secondDate;
+    var m           = m-1;
+}
+else
+{
+    var d           = secondDate-birthDay;
+}
         
-        var leapYear        =parseInt( year/4);
-        var months          =(year*12)+m;
-        var days            = (365*year)+d+parseInt(m*30.4167)+leapYear;
+                
+function leapYear(year)
+{
+    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+}
         
+// var leapYear        =parseInt( year/4);
+var months          =(year*12)+m;
+var days            = 365*year+d+(31*m)+leapYear(year);
         
-        document.getElementById("result").innerHTML=("Hi "+name+" "+lName+" you lived: <br>"+year+" years "+m+" month "+d+" day or <br>"+months+" month "+d+" days or <br>"+days+" days");
-    }
-    showresult();
+document.getElementById("result").innerHTML=("Hi "+name+" "+lName+" you lived: <br>"+year+" years "+m+" month "+d+" day or <br>"+months+" month "+d+" days or <br>"+days+" days");
+}
+showresult();
 </script>
 </body>
 </html>
